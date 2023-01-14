@@ -1,14 +1,11 @@
 package com.AmanSagar.LibraryManagementSystem.Module;
 
-import com.AmanSagar.LibraryManagementSystem.enums.CardStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table
@@ -16,18 +13,17 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Card {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Enumerated(value = EnumType.STRING)
-    private CardStatus cardstatus;
+    private String name;
 
-    @OneToOne
-    @JsonIgnore
-    private Student student;
+    private int pages;
+
     @JoinColumn
-    @OneToMany
-    private List<Book> cardholderbooks;
+    @ManyToOne
+    private Author author;
+
 }
