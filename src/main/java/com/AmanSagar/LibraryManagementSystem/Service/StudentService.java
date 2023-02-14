@@ -20,4 +20,7 @@ public class StudentService {
     public Student findbyEmail(String email){
         return studentrepository.findByEmail(email);
     }
+    public void findByName(String name){
+        studentrepository.findByName(name);
+    }
 }
