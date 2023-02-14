@@ -17,4 +17,7 @@ public class StudentService {
         studentrepository.save(student);
         return "Sucessfully added";
     }
+    public Student findbyEmail(String email){
+        return studentrepository.findByEmail(email);
+    }
 }
