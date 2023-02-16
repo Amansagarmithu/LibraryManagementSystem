@@ -26,4 +26,7 @@ public class Book {
     @ManyToOne
     private Author author;
 
+    @OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
+    private List<Transaction> transactions = new ArrayList<>();
+
 }
