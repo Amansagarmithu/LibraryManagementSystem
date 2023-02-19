@@ -16,7 +16,7 @@ public class IssueBook {
     BookIssuedService bookIssuedService;
 
     @PostMapping("/issueBook")
-    public String issueBook(@RequestBody BookIssued bookissued){
+    public String issueBook(@RequestBody BookIssued bookissued)throws Exception{
         return bookIssuedService.issueBook(bookissued);
     }
 }

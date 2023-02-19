@@ -3,6 +3,7 @@ package com.AmanSagar.LibraryManagementSystem.Module;
 import com.AmanSagar.LibraryManagementSystem.enums.TransactionStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Entity
 @Table(name="Transaction")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 
