@@ -33,5 +33,6 @@ public class Card {
     private List<Book> cardholderbooks;
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+
     private List<Transaction> transactionsList = new ArrayList<>();
 }

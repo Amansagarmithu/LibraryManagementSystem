@@ -4,6 +4,7 @@ import com.AmanSagar.LibraryManagementSystem.Convertor.CardConvertor;
 import com.AmanSagar.LibraryManagementSystem.Module.Book;
 import com.AmanSagar.LibraryManagementSystem.Module.Card;
 import com.AmanSagar.LibraryManagementSystem.Module.Student;
+import com.AmanSagar.LibraryManagementSystem.Module.Transaction;
 import com.AmanSagar.LibraryManagementSystem.Repository.BookRepository;
 import com.AmanSagar.LibraryManagementSystem.Repository.CardRepository;
 import com.AmanSagar.LibraryManagementSystem.Repository.StudentRepository;
@@ -36,5 +37,11 @@ public class CardService {
         cardbooks.add(book);
         card.setCardholderbooks(cardbooks);
         return "Sucessfully added ";
+    }
+    public List<Transaction> gettransaction(int cardId){
+        Card cr = cardrepository.findById(cardId).get();
+        if(cr==null) return new ArrayList<>();
+        return cr.getTransactionsList();
+
     }
 }

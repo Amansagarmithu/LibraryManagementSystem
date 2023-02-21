@@ -8,6 +8,7 @@ import com.AmanSagar.LibraryManagementSystem.Repository.CardRepository;
 import com.AmanSagar.LibraryManagementSystem.Repository.TransactionRepository;
 import com.AmanSagar.LibraryManagementSystem.RequestDto.BookIssued;
 import com.AmanSagar.LibraryManagementSystem.enums.TransactionStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,12 @@ public class BookIssuedService {
 
         return "success";
     }
+
     public int ListOfTransaction(int cardId){
+        if(cardrepository.findById(cardId)==null){
+            return -1;
+        }
+
         List<Transaction> ans = transactionRepository.findTransaction(cardId);
         return ans.size();
     }
@@ -62,6 +68,7 @@ public class BookIssuedService {
             fine = (int)((diff-10l)*10);
         }
         Book bk = bookRepository.findById(bookid).get();
+
         bk.setBookissued(false);
         Card cr = cardrepository.findById(cardid).get();
         Transaction tr = Transaction_convertor.convertor(bk,cr);
