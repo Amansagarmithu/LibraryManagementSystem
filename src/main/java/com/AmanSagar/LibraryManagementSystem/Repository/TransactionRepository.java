@@ -12,4 +12,7 @@ public interface TransactionRepository extends JpaRepository<Transaction,Integer
 
     @Query(value = "select * from transaction where card_id = :cardid",nativeQuery = true)
     public List<Transaction> findTransaction(int cardid);
+
+    @Query(value = "select transaction_date from transaction where card_id =:cardid and book_id =:bookid",nativeQuery = true)
+    public Date findDate(int bookid,int cardid);
 }
