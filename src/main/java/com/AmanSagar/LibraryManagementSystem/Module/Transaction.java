@@ -1,6 +1,7 @@
 package com.AmanSagar.LibraryManagementSystem.Module;
 
 import com.AmanSagar.LibraryManagementSystem.enums.TransactionStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,10 +37,12 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private Book book;
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private Card card;
 
 }

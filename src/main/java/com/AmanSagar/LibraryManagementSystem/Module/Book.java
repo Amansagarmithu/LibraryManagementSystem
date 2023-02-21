@@ -1,5 +1,6 @@
 package com.AmanSagar.LibraryManagementSystem.Module;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +27,7 @@ public class Book {
 
     @JoinColumn
     @ManyToOne
+    @JsonIgnore
     private Author author;
     private boolean bookissued = false;
 

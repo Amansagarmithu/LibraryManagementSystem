@@ -1,5 +1,6 @@
 package com.AmanSagar.LibraryManagementSystem.Module;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,5 +24,6 @@ public class Student {
     private String email;
 
     @OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
+    @JsonIgnore
     private Card card;
 }
