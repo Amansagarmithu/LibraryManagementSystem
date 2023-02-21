@@ -1,5 +1,4 @@
 package com.AmanSagar.LibraryManagementSystem.Service;
-
 import com.AmanSagar.LibraryManagementSystem.Convertor.Transaction_convertor;
 import com.AmanSagar.LibraryManagementSystem.Module.Book;
 import com.AmanSagar.LibraryManagementSystem.Module.Card;
@@ -26,6 +25,7 @@ public class BookIssuedService {
 
     public String issueBook(BookIssued bookissued) throws Exception{
         Book bk = bookRepository.findById(bookissued.getBookid()).get();
+        bk.setBookissued(true);
         Card cr = cardrepository.findById(bookissued.getCardid()).get();
         Transaction transaction = Transaction_convertor.convertor(bk,cr);
         if(bk==null){
@@ -45,5 +45,9 @@ public class BookIssuedService {
         transactionRepository.save(transaction);
 
         return "success";
+    }
+    public int ListOfTransaction(int cardId){
+        List<Transaction> ans = transactionRepository.findTransaction(cardId);
+        return ans.size();
     }
 }
