@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table
 @Data
 @NoArgsConstructor
 @Builder

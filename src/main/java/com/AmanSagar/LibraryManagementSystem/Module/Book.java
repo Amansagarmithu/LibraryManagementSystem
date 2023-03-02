@@ -11,7 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.util.*;
 
 @Entity
-@Table
 @Data
 @Builder
 @AllArgsConstructor
